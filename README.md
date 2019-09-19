@@ -22,16 +22,23 @@ LOCATION 'hdfs://some-path'
 This format is pretty simple. It uses `\x01`, `\x02`, ... as delimiters, in the following way:
 
 Delimiter starts as `1` (`\x01`).
+
 Simple types (`bool`, `int`, `float`, `string`, ...) are encoded and decoded as is.
+
 Structs are formatted as:
-    - format each of the fields recursively without chaning the delimiter value
-    - join them with the `delimiter`
+
+- format each of the fields recursively without chaning the delimiter value
+- join them with the `delimiter`
+
 Slices are formatted as:
-    - format each of the elements recursively with `delimiter+1`
-    - join them with `delimiter+2`
+
+- format each of the elements recursively with `delimiter+1`
+- join them with `delimiter+2`
+
 Maps are formatted as:
-    - format each of the key, values recursively with `delimiter+2`
-    - join key and value with `delimiter+3` and then join all key value pairs with `delimiter+2`
+
+- format each of the key, values recursively with `delimiter+2`
+- join key and value with `delimiter+3` and then join all key value pairs with `delimiter+2`
 
 ### Example
 
