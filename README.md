@@ -1,6 +1,8 @@
 # hive
 Implementation of the LazySimpleSerDe for Hive in Go
 
+https://godoc.org/github.com/n1chre/hive
+
 ## Format
 
 When using this with hive, you can create your table using this and all the files will be in the LazySimpleSerDe format.
